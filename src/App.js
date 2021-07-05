@@ -1,16 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          Tienda de indumentaria
-        </h1>
-        <p>¡Bienvenido!</p>
+    <div>
+      <header>
+        <div>
+          <NavBar/>
+        </div>
       </header>
+      <main>
+        <h2>
+          Tienda de indumentaria
+        </h2>
+        <p>¡Bienvenido!</p>
+      </main>
     </div>
   );
 }
