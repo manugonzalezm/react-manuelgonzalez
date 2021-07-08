@@ -1,5 +1,6 @@
 import React from 'react';
 import logoTienda from '../img/logoTienda.png';
+import CartWidget from './CartWidget.js';
 
 export default function NavBar() {
     return(
@@ -18,6 +19,7 @@ export default function NavBar() {
                         <a href="index.js">Contacto</a>
                     </li>
                 </ul>
+                <CartWidget />
             </nav>
         </div>
     );
