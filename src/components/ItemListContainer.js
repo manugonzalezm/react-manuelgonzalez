@@ -1,3 +1,6 @@
+import React from 'react';
+import ItemCount from './ItemCount';
+
 function ItemListContainer(producto) {
     return(
         <div className="cardProducto">
@@ -6,6 +9,10 @@ function ItemListContainer(producto) {
                 src={ producto.foto }
             />
             <p> ${ producto.precio } </p>
+            <ItemCount
+                stock="10"
+                initial="1"
+            />
         </div>
     )
 }
