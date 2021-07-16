@@ -4,25 +4,25 @@
         "id": 1,
         "nombre": "Escritorio nórdico",
         "precio": 12000,
-        "foto": "escritorio"
+        "foto": "src/img/products/taza-fisica.png"
     },
     {
         "id": 2,
         "nombre": "Remera Einstein",
         "precio": 1500,
-        "foto": "remera"
+        "foto": "src/img/products/escritorio-nordico.jpg"
     },
     {
         "id": 3,
         "nombre": "Taza mágica Física y Química",
         "precio": 800,
-        "foto": "taza"
+        "foto": "src/img/products/remera-einstein.jpg"
     },
     {
         "id": 4,
         "nombre": "Teclado Gamer",
         "precio": 6000,
-        "foto": "teclado"
+        "foto": "src/img/products/teclado-gamer.jpg"
     }
 ],
   "profile": {
