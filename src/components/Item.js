@@ -6,7 +6,7 @@ function Item(producto) {
         <div className="cardProducto">
             <h4> { producto.id } - { producto.nombre } </h4>
             <img 
-                src={ producto.foto }
+                src={require(`../img/products/${producto.foto}`).default}
             />
             <p> ${ producto.precio } </p>
             <ItemCount

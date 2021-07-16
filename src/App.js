@@ -12,7 +12,7 @@ function App() {
       </header>
       <main>
         <h2>
-          Tu tienda de artículos nerd
+          Tu tienda de artículos nerds
         </h2>
         <p>¡Bienvenido!</p>
         <ItemListContainer />

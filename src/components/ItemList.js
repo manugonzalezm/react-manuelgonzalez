@@ -1,44 +1,23 @@
 import React from 'react';
 import Item from './Item';
-import {
-    taza,
-    escritorio,
-    remera,
-    teclado
-} from '../img/images';
+import { useState, useEffect } from 'react';
 
-var dataProductos = [
-    {
-        id: 1,
-        nombre: "Escritorio nórdico",
-        precio: 12000,
-        foto: escritorio
-    },
-    {
-        id: 2,
-        nombre: "Remera Einstein",
-        precio: 1500,
-        foto: remera
-    },
-    {
-        id: 3,
-        nombre: "Taza mágica Física y Química",
-        precio: 800,
-        foto: taza
-    },
-    {
-        id: 4,
-        nombre: "Teclado Gamer",
-        precio: 6000,
-        foto: teclado
+function ItemList() {
+    const[catalogo, setCatalogo] = useState([]);
+
+    const obtenerDatos = async () => {
+        const data = await fetch('https://my-json-server.typicode.com/manugonzalezm/react-manuelgonzalez/catalogo');
+        const productos = await data.json();
+        setCatalogo(productos);
     }
-];
 
-function ItemList(producto) {
-    
+    useEffect(() => {
+        obtenerDatos();
+    }, [])
+
     return(
         <div className="containerCards">
-            {dataProductos.map(producto => {
+            {catalogo.map(producto => {
                 return(
                     <Item
                         key = { producto.id }
