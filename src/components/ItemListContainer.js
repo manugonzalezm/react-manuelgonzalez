@@ -1,18 +1,11 @@
 import React from 'react';
 import ItemCount from './ItemCount';
+import ItemList from './ItemList'
 
 function ItemListContainer(producto) {
     return(
-        <div className="cardProducto">
-            <h4> { producto.id } - { producto.nombre } </h4>
-            <img 
-                src={ producto.foto }
-            />
-            <p> ${ producto.precio } </p>
-            <ItemCount
-                stock="10"
-                initial="1"
-            />
+        <div id="itemListContainer">
+            <ItemList />
         </div>
     )
 }
