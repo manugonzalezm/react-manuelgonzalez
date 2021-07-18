@@ -1,6 +1,6 @@
 import './styles/styles.css';
 import NavBar from './components/NavBar.js';
-import ItemListContainer from './components/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           Tu tienda de artículos nerds
         </h2>
         <p>¡Bienvenido!</p>
-        <ItemListContainer />
+        <ItemDetailContainer />
       </main>
     </div>
   );
