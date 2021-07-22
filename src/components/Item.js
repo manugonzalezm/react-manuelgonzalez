@@ -10,7 +10,7 @@ function Item(producto) {
             />
             <p> ${ producto.precio } </p>
             <ItemCount
-                stock="10"
+                stock={ producto.stock }
                 initial="1"
             />
         </div>
