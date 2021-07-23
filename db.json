@@ -5,6 +5,8 @@
         "nombre": "Escritorio nórdico",
         "precio": 12000,
         "foto": "taza-fisica.png",
+        "categoria": "tazas",
+        "descripcion": "Un escritorio cómodo, sencillo y espacioso de una excelente calidad.",
         "stock": 10
     },
     {
@@ -12,6 +14,8 @@
         "nombre": "Remera Einstein",
         "precio": 1500,
         "foto": "escritorio-nordico.jpg",
+        "categoria": "muebles",
+        "descripcion": "Remera unisex de algodón estampada. Alta calidad. No achica. Talles sujetos a disponibilidad de stock.",
         "stock": 28
     },
     {
@@ -19,6 +23,8 @@
         "nombre": "Taza mágica Física y Química",
         "precio": 800,
         "foto": "remera-einstein.jpg",
+        "categoria": "indumentaria",
+        "descripcion": "Taza mágica que al colocar agua caliente se revela el dibujo de la imagen. Alta calidad y duración del dibujo asegurada.",
         "stock": 16
     },
     {
@@ -26,7 +32,27 @@
         "nombre": "Teclado Gamer",
         "precio": 6000,
         "foto": "teclado-gamer.jpg",
+        "categoria": "accesorios",
+        "descripcion": "Teclado con luces RGB configurables para una mejor experiencia de juego.",
         "stock": 8
+    },
+    {
+        "id": 5,
+        "nombre": "Silla Gamer",
+        "precio": 20000,
+        "foto": "silla-gamer.jpg",
+        "categoria": "muebles",
+        "descripcion": "Silla ergonómica, ajustable y super cómoda para largas jornadas de juego y/o trabajo cuidando la postura.",
+        "stock": 10
+    },
+    {
+        "id": 6,
+        "nombre": "Mochila Física",
+        "precio": 9000,
+        "foto": "mochila-fisica.jpg",
+        "categoria": "indumentaria",
+        "descripcion": "Mochila con diseño de Física de excelente calidad. Posee compartimentos para el estudiante que le facilitarán la organización de sus accesorios y pertenencias.",
+        "stock": 10
     }
 ],
   "profile": {
