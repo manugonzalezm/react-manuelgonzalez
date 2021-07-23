@@ -20,7 +20,7 @@
     },
     {
         "id": 3,
-        "nombre": "Taza mágica Física y Química",
+        "nombre": "Taza mágica",
         "precio": 800,
         "foto": "taza-fisica.png",
         "categoria": "tazas",
