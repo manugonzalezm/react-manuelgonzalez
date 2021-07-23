@@ -4,8 +4,8 @@
         "id": 1,
         "nombre": "Escritorio nórdico",
         "precio": 12000,
-        "foto": "taza-fisica.png",
-        "categoria": "tazas",
+        "foto": "escritorio-nordico.jpg",
+        "categoria": "muebles",
         "descripcion": "Un escritorio cómodo, sencillo y espacioso de una excelente calidad.",
         "stock": 10
     },
@@ -13,8 +13,8 @@
         "id": 2,
         "nombre": "Remera Einstein",
         "precio": 1500,
-        "foto": "escritorio-nordico.jpg",
-        "categoria": "muebles",
+        "foto": "remera-einstein.jpg",
+        "categoria": "indumentaria",
         "descripcion": "Remera unisex de algodón estampada. Alta calidad. No achica. Talles sujetos a disponibilidad de stock.",
         "stock": 28
     },
@@ -22,8 +22,8 @@
         "id": 3,
         "nombre": "Taza mágica Física y Química",
         "precio": 800,
-        "foto": "remera-einstein.jpg",
-        "categoria": "indumentaria",
+        "foto": "taza-fisica.png",
+        "categoria": "tazas",
         "descripcion": "Taza mágica que al colocar agua caliente se revela el dibujo de la imagen. Alta calidad y duración del dibujo asegurada.",
         "stock": 16
     },
