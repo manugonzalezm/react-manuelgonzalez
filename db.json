@@ -4,29 +4,55 @@
         "id": 1,
         "nombre": "Escritorio nórdico",
         "precio": 12000,
-        "foto": "taza-fisica.png",
+        "foto": "https://http2.mlstatic.com/D_NQ_NP_976247-MLA41926998610_052020-O.jpg",
+        "categoria": "muebles",
+        "descripcion": "Un escritorio cómodo, sencillo y espacioso de una excelente calidad.",
         "stock": 10
     },
     {
         "id": 2,
         "nombre": "Remera Einstein",
         "precio": 1500,
-        "foto": "escritorio-nordico.jpg",
+        "foto": "https://http2.mlstatic.com/D_NQ_NP_845580-MLA31582237429_072019-O.jpg",
+        "categoria": "indumentaria",
+        "descripcion": "Remera unisex de algodón estampada. Alta calidad. No achica. Talles sujetos a disponibilidad de stock.",
         "stock": 28
     },
     {
         "id": 3,
-        "nombre": "Taza mágica Física y Química",
+        "nombre": "Taza mágica",
         "precio": 800,
-        "foto": "remera-einstein.jpg",
+        "foto": "https://ae01.alicdn.com/kf/HTB1dj3rXW67gK0jSZFHq6y9jVXa1.jpg_q50.jpg",
+        "categoria": "tazas",
+        "descripcion": "Taza mágica que al colocar agua caliente se revela el dibujo de la imagen. Alta calidad y duración del dibujo asegurada.",
         "stock": 16
     },
     {
         "id": 4,
         "nombre": "Teclado Gamer",
         "precio": 6000,
-        "foto": "teclado-gamer.jpg",
+        "foto": "https://www.brandimia.com/productos/628060-2.jpg",
+        "categoria": "accesorios",
+        "descripcion": "Teclado con luces RGB configurables para una mejor experiencia de juego.",
         "stock": 8
+    },
+    {
+        "id": 5,
+        "nombre": "Silla Gamer",
+        "precio": 20000,
+        "foto": "https://s3-sa-east-1.amazonaws.com/saasargentina/AGeqZRAtXrboBMFo0OZp/imagen",
+        "categoria": "muebles",
+        "descripcion": "Silla ergonómica, ajustable y super cómoda para largas jornadas de juego y/o trabajo cuidando la postura.",
+        "stock": 10
+    },
+    {
+        "id": 6,
+        "nombre": "Mochila Física",
+        "precio": 9000,
+        "foto": "https://teenychimp.com/wp-content/uploads/2020/03/formula-math-physics-backpack.jpg",
+        "categoria": "indumentaria",
+        "descripcion": "Mochila con diseño de Física de excelente calidad. Posee compartimentos para el estudiante que le facilitarán la organización de sus accesorios y pertenencias.",
+        "stock": 10
     }
 ],
   "profile": {
