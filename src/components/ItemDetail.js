@@ -2,16 +2,17 @@ import React from 'react';
 import ItemCount from './ItemCount';
 
 function ItemDetail(producto) {
+
     return(
         <div className="cardProducto">
-            <h4> { producto.id } - { producto.titulo } </h4>
+            <h4> { productDetail.titulo } </h4>
             <img 
-                src={require(`../img/products/${producto.foto}`).default}
+                src={require(`../img/products/${productDetail.foto}`).default}
             />
-            <p>{ producto.descripcion }</p>
-            <p> ${ producto.precio } </p>
+            <p>{ productDetail.descripcion }</p>
+            <p> ${ productDetail.precio } </p>
             <ItemCount
-                stock={ producto.stock }
+                stock={ productDetail.stock }
                 initial="1"
             />
         </div>
