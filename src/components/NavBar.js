@@ -1,41 +1,100 @@
 import React from 'react';
-import logoTienda from '../img/logoTienda.png';
-import CartWidget from './CartWidget.js';
+import { useState } from 'react';
+import CartWidget from './CartWidget';
+import {Button,
+        AppBar,
+        Toolbar,
+        Typography,
+        makeStyles,
+        Menu,
+        MenuItem } from '@material-ui/core';
+import {OfflineBolt,
+        Store,
+        Category,
+        Contacts } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
-import { Button,Menu,MenuItem } from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+    offset: theme.mixins.toolbar,
+    title: {
+        marginRight:400
+    },
+    
+}))
 
 export default function NavBar() {
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleOpenMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    
+    const handleMenuClose = () => {
+        setAnchorEl(null)
+    }
+
     return(
-        <div>
-            <nav className="menu">
-                <img src={logoTienda} id="logo"/>
-                <h1>TiendaCiencia</h1>
-                <ul className="menu">
-                    <li>
-                        <Link to="/">Productos</Link>
-                    </li>
-                    <li>
-                    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                    Categorías
-                    </Button>
-                    <Menu
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
+                <div>
+                    <AppBar>
+                        <Toolbar>
+                            <Link to="/" className={classes.title}>
+                                <Typography variant="h3">
+                                    <OfflineBolt fontSize="large"/>Tienda Ciencia
+                                </Typography>
+                            </Link>
+                            <div id="botones">
+                                <Link to="/productos">
+                                    <Button 
+                                        variant="contained"
+                                        color="secondary"
+                                        startIcon={<Store/>}
+                                    >
+                                        Productos
+                                    </Button>
+                                </Link>
+                                <Button 
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<Category/>}
+                                    onClick={handleOpenMenu}
+                                    aria-controls='categorias'
+                                    disableRipple
+                                >
+                                    Categorías
+                                </Button>
+                                <Button 
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<Contacts/>}
+                                >
+                                    Contacto
+                                </Button>
+                                <CartWidget />
+                            </div>
+                        </Toolbar>
+                    </AppBar>
+                    <div className={classes.offset}></div>
+
+                    <Menu 
+                    id='categorias' 
+                    onClose={handleMenuClose} 
+                    anchorEl={anchorEl} 
                     open={Boolean(anchorEl)}
-                    onClose={handleClose}
                     >
-                    <MenuItem><Link to="/categoria/tazas">Tazas</Link></MenuItem>
-                    <MenuItem><Link to="/categoria/indumentaria">Indumentaria</Link></MenuItem>
-                    <MenuItem><Link to="/categoria/muebles">Muebles y accesorios</Link></MenuItem>
+                        <Link to="/categorias/muebles">
+                            <MenuItem onClick={handleMenuClose}>Muebles</MenuItem>
+                        </Link>
+                        <Link to="/categorias/indumentaria">
+                            <MenuItem onClick={handleMenuClose}>Indumentaria</MenuItem>
+                        </Link>
+                        <Link to="/categorias/accesorios">
+                            <MenuItem onClick={handleMenuClose}>Accesorios</MenuItem>
+                        </Link>
+                        <Link to="/categorias/tazas">
+                            <MenuItem onClick={handleMenuClose}>Tazas</MenuItem>
+                        </Link>
                     </Menu>
-                    </li>
-                    <li>
-                        <Link to="/contacto">Contacto</Link>
-                    </li>
-                </ul>
-                <CartWidget />
-            </nav>
-        </div>
+                </div>
     );
 }

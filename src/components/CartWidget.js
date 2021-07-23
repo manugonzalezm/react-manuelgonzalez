@@ -1,12 +1,13 @@
 import React from 'react';
-import cart from '../img/cart.png';
+import { ShoppingCart } from '@material-ui/icons'
+import { IconButton } from '@material-ui/core';
 
 function CartWidget() {
     return(
-        <div id="cart">
-            <img 
-                src={cart}
-            />
+        <div>
+            <IconButton>
+                <ShoppingCart />
+            </IconButton>
         </div>
     )
 }

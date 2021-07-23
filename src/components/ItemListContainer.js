@@ -1,15 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import ItemList from './ItemList';
-//axios
-//spinner
+import { CircularProgress } from '@material-ui/core'
 
-function ItemListContainer(producto) {
+function ItemListContainer() {
 
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
-        const data = await fetch('https://my-json-server.typicode.com/manugonzalezm/react-manuelgonzalez/catalogo/1')
+        const data = await fetch('https://my-json-server.typicode.com/manugonzalezm/react-manuelgonzalez/catalogo/')
         const responseData = await data.json()
         setProducts(responseData)
     }
@@ -21,7 +20,7 @@ function ItemListContainer(producto) {
     return(
         <div id="itemListContainer">
             { products.length === 0
-                ? <h1>Hola</h1>
+                ? <CircularProgress color="secondary" id="preloaderInicio" />
                 : <ItemList products={ products } />
             }
         </div>
