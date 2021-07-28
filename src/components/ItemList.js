@@ -12,7 +12,6 @@ function ItemList({products}) {
                         nombre = { producto.nombre }
                         precio = { producto.precio }
                         foto = { producto.foto }
-                        stock = { producto.stock }
                     />
                 )
             })}
