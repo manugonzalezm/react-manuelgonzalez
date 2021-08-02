@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import{ useCartContext } from '../context/CartContext'
 import CartWidget from './CartWidget';
 import {Button,
         AppBar,
@@ -7,7 +8,8 @@ import {Button,
         Typography,
         makeStyles,
         Menu,
-        MenuItem } from '@material-ui/core';
+        MenuItem,
+        Badge } from '@material-ui/core';
 import {OfflineBolt,
         Store,
         Category,
@@ -23,6 +25,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function NavBar() {
+    const { cartContador } = useCartContext()
+
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -70,7 +74,11 @@ export default function NavBar() {
                                 >
                                     Contacto
                                 </Button>
-                                <CartWidget />
+                                <Link to='/cart'>
+                                    <Badge badgeContent={cartContador} color="secondary">
+                                        <CartWidget />
+                                    </Badge>
+                                </Link>
                             </div>
                         </Toolbar>
                     </AppBar>

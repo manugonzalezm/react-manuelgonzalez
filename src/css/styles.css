@@ -158,3 +158,14 @@ a{
 #preloaderInicio{
   margin-top: 250px;
 }
+
+#carrito{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#carrito *{
+  margin: 5px 0;
+}
