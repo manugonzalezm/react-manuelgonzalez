@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import ItemCount from './ItemCount';
 import { Link, useParams } from 'react-router-dom';
-import { Button, CircularProgress } from '@material-ui/core'
-import { ShoppingBasket } from '@material-ui/icons'
+import { Button, CircularProgress, Snackbar } from '@material-ui/core'
+import MuiAlert from '@material-ui/lab/Alert';
+import { ShoppingBasket, ShopTwo } from '@material-ui/icons'
 import { useCartContext } from '../context/CartContext'
 
 
@@ -12,11 +13,17 @@ export default function ItemDetailContainer() {
         const [item, setItem] = useState([]);
         const [cant,setCant] = useState(1);
         const [showCart, setShowCart] = useState(true)
+        const [open, setOpen] = useState(false)
 
         const { addItem } = useCartContext();
 
+        const handleClose = () => {
+            setOpen(false);
+        }
+
         const finishCompra = () => {
             setShowCart(false);
+            setOpen(true);
             addItem(item, cant)
         }
     
@@ -67,6 +74,15 @@ export default function ItemDetailContainer() {
                         stock= {item.stock}
                     /> :
                     <div className="cart">
+                    <Link to={`/productos`}>
+                        <Button
+                        id="continue"
+                        variant="contained" 
+                        size="large"
+                        startIcon={<ShopTwo />}>
+                            Seguir comprando
+                        </Button>
+                    </Link>
                     <Link to={`/cart`}>
                         <Button
                         variant="contained" 
@@ -78,6 +94,18 @@ export default function ItemDetailContainer() {
                     </Link>
                     </div>
                     }
+                    <Snackbar 
+                        open={open} 
+                        autoHideDuration={5000} 
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}>
+                        <MuiAlert elevation={6} variant="filled" severity="success" onClose={handleClose}>
+                        Agregaste {cant} productos al carrito
+                        </MuiAlert>
+                    </Snackbar>
                 </div>
                 )}
             </>

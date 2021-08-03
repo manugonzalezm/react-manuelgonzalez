@@ -60,7 +60,7 @@ a{
 .cardProducto{
   width: 20%;
   background-color: rgb(166, 253, 224);
-  margin: 50px;
+  margin: 35px;
   border: solid black 1.5px;
   padding: 10px;
   border-radius: 1rem;
@@ -167,5 +167,38 @@ a{
 }
 
 #carrito *{
-  margin: 5px 0;
+  margin: 8px 0;
+}
+
+.miniaturaProd{
+  width: 120px;
+  height: 120px;
+}
+
+.containerCarts{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  border: black solid 1px;
+  border-radius: 2rem;
+  background-color: rgb(216, 216, 216);
+}
+
+#comprar{
+  background-color: rgb(1, 145, 1);
+}
+
+#continue{
+  background-color: rgb(115, 172, 31);
+  margin: 0 15px 0 0;
+}
+
+#botonesCart{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
