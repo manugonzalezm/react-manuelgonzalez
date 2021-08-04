@@ -9,7 +9,7 @@ function CartWidget() {
 
     return(
         <div>
-            {   cartContador==0 ? <></>
+            {   cartContador===0 ? <></>
                                     :
                                     <Link to='/cart'>
                                         <IconButton>

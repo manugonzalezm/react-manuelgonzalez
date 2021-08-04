@@ -7,6 +7,7 @@ import { Button, CircularProgress, Snackbar } from '@material-ui/core'
 import MuiAlert from '@material-ui/lab/Alert';
 import { ShoppingBasket, ShopTwo } from '@material-ui/icons'
 import { useCartContext } from '../context/CartContext'
+import { getFirestore } from '../firebase';
 
 
 export default function ItemDetailContainer() {
@@ -14,6 +15,7 @@ export default function ItemDetailContainer() {
         const [cant,setCant] = useState(1);
         const [showCart, setShowCart] = useState(true)
         const [open, setOpen] = useState(false)
+        const [loading, setLoading] = useState(true)
 
         const { addItem } = useCartContext();
 
@@ -30,12 +32,30 @@ export default function ItemDetailContainer() {
         const {id} = useParams();
     
         useEffect(() => {
-            const getProductDetail = async () => {
-                const data = await fetch(`https://my-json-server.typicode.com/manugonzalezm/react-manuelgonzalez/catalogo/${id}`)
-                const responseData = await data.json()
-                setItem(responseData)
-            }
-            setTimeout(() => getProductDetail(), 2000);
+            setLoading(true);
+            const db = getFirestore();
+            const collection = db.collection("productos");
+            const item = collection.doc(id);
+    
+            item.get().then((doc) => {
+                if (!doc.exists) {
+                    console.log("El item no existe en la base de datos");
+                    return;
+                }
+                console.log("Item encontrado");
+                setItem({ id: doc.id, ...doc.data() });
+            }).catch((error) => {
+                console.log("Error buscando el item", error);
+            }).finally(() => {
+                setLoading(false);
+            });
+
+        //    const getProductDetail = async () => {
+        //        const data = await fetch(`https://my-json-server.typicode.com/manugonzalezm/react-manuelgonzalez/catalogo/${id}`)
+        //        const responseData = await data.json()
+        //        setItem(responseData)
+        //    }
+        //    setTimeout(() => getProductDetail(), 2000);
         }, [id])
     
     const sacarProducto = () => {
@@ -53,7 +73,7 @@ export default function ItemDetailContainer() {
 
         return (
             <>
-                { item.length === 0
+                { loading
                         ? <CircularProgress color="secondary" className="Preloader"/>
                         :  (
                 <div>

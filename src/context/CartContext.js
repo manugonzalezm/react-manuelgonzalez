@@ -30,6 +30,7 @@ const CartProvider = ( {children} ) => {
         setCartContador(prev => prev - cant)
         let newCart = cartItems.filter(i => i.id!==item.id)
         setCartItems(newCart);
+        setCartPrecio(a => a - (item.precio*cant))
     }
 
     const clearCart = () => {
