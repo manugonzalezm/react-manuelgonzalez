@@ -49,13 +49,6 @@ export default function ItemDetailContainer() {
             }).finally(() => {
                 setLoading(false);
             });
-
-        //    const getProductDetail = async () => {
-        //        const data = await fetch(`https://my-json-server.typicode.com/manugonzalezm/react-manuelgonzalez/catalogo/${id}`)
-        //        const responseData = await data.json()
-        //        setItem(responseData)
-        //    }
-        //    setTimeout(() => getProductDetail(), 2000);
         }, [id])
     
     const sacarProducto = () => {

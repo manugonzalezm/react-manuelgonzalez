@@ -3,25 +3,41 @@ import Item from './Item';
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { CircularProgress } from '@material-ui/core'
-
+import { getFirestore } from '../firebase';
 
 function CategoriasList() {
     const [productsCateg, setProductsCateg] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     const {categoria} = useParams();
 
     useEffect(() => {
-        const getProductsByCateg = async () => {
-            const data = await fetch('https://my-json-server.typicode.com/manugonzalezm/react-manuelgonzalez/catalogo/')
-            const responseData = await data.json()
-            console.log(responseData)
-            setProductsCateg(responseData)
-        }
+        setLoading(true);
+        const db = getFirestore();
+        const collection = db.collection("productos");
+        const condicion = collection.where("categoria","==",{categoria});
+        const query = condicion.get();
 
-        setTimeout(() => getProductsByCateg(), 2000);
+        query.then((result) => {
+            result.forEach(documento => {
+                setProductsCateg(documento.data())
+            })
+        })
+
+        collection.get().then((querySnapshot) => {
+            if (querySnapshot.size === 0) {
+                console.log("No se encontraron resultados");
+            }
+            setProductsCateg(querySnapshot.docs.map(doc => doc.data()));
+        }).catch((error) => {
+            console.log("Error buscando los productos", error);
+        }).finally(() => {
+            setLoading(false);
+        });
     }, [categoria])
     return(
         <div>
-            { productsCateg.length === 0
+            { loading
                 ? <CircularProgress color="secondary" id="preloaderInicio" />
                 : 
                 <div className="containerCards">
