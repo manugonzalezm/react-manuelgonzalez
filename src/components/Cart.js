@@ -40,9 +40,11 @@ function Cart() {
                             Total= ${cartPrecio}
                         </Typography>
                     }  
-                    <Button id="comprar" variant="contained">
-                        Comprar
-                    </Button>
+                    <Link to="/comprar">
+                        <Button id="comprar" variant="contained">
+                            Comprar
+                        </Button>
+                    </Link>
                 </div>
             }
         </div>
