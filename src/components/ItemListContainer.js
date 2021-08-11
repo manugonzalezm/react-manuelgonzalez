@@ -1,10 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import ItemList from './ItemList';
-import { CircularProgress } from '@material-ui/core'
+import { CircularProgress, Grid, Container, Box } from '@material-ui/core'
 import { getFirestore } from '../firebase';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles({
+    gridContainer: {
+        padding: "20px",
+    },
+});
 
 function ItemListContainer() {
+
+    const classes = useStyles();
 
     const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState([]);
@@ -35,12 +45,22 @@ function ItemListContainer() {
     }, []);
 
     return(
-        <div id="itemListContainer">
+        <>
+            <Container 
+                fixed
+                className={classes.gridContainer}
+            >
             { loading
                 ? <CircularProgress color="secondary" id="preloaderInicio" />
-                : <ItemList products={ products } />
+                : 
+                    <Grid 
+                        container
+                    >
+                        <ItemList products={ products } />
+                    </Grid>
             }
-        </div>
+            </Container>
+        </>
     )
 }
 

@@ -1,19 +1,25 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import { Add, Remove, AddShoppingCart } from '@material-ui/icons';
-
 
 export default function ItemCount({ cant, sacarProducto, onAdd, finishCompra }) {
 
     return(
         <div>
             <form>
-                <div className="cant">
-                    <button type="button" onClick={sacarProducto}><Remove /></button>
-                    <input className="cantProducto" type="number" disabled value={cant} />
-                    <button type="button" onClick={onAdd}><Add /></button>
+                <div>
+                    <Button onClick={sacarProducto}><Remove /></Button>
+                    <TextField 
+                        id="cant"
+                        type="number"
+                        value={cant}
+                        inputProps={{
+                            readOnly: true,
+                        }}
+                    />
+                    <Button onClick={onAdd}><Add /></Button>
                 </div>
-                <div className="cart">
+                <div id="cart">
                     <Button type="submit" onClick={finishCompra}><AddShoppingCart /> Agregar al Carrito</Button>
                 </div>
             </form>

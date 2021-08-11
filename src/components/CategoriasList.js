@@ -2,10 +2,23 @@ import React from 'react';
 import Item from './Item';
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
-import { CircularProgress } from '@material-ui/core'
+import { CircularProgress, Grid } from '@material-ui/core'
 import { getFirestore } from '../firebase';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    cardCenter: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "0 0 35px 0",
+    },
+});
 
 function CategoriasList() {
+
+    const classes = useStyles();
+
     const [productsCateg, setProductsCateg] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -39,20 +52,28 @@ function CategoriasList() {
         <div>
             { loading
                 ? <CircularProgress color="secondary" id="preloaderInicio" />
-                : 
+                :
                 <div className="containerCards">
-                {productsCateg.filter(p => p.categoria === `${categoria}`).map(producto => {
-                    return(
-                        <Item
-                            key = { producto.id }
-                            id = { producto.id }
-                            nombre = { producto.nombre }
-                            precio = { producto.precio }
-                            foto = { producto.foto }
-                            stock = { producto.stock }
-                        />
-                    )
-                })}
+                    {productsCateg.filter(p => p.categoria === `${categoria}`).map(producto => {
+                        return(
+                        <Grid 
+                            item 
+                            xs={4}
+                            className={classes.cardCenter}
+                            justify="center"
+                            alignItems="center"
+                        >
+                            <Item
+                                key = { producto.id }
+                                id = { producto.id }
+                                nombre = { producto.nombre }
+                                precio = { producto.precio }
+                                foto = { producto.foto }
+                                stock = { producto.stock }
+                            />
+                        </Grid>
+                        )
+                    })}
                 </div>
             }
         </div>

@@ -19,7 +19,9 @@ const useStyles = makeStyles(theme => ({
     title: {
         marginRight:300
     },
-    
+    marca:{
+        fontSize: "2.5rem",
+    },
 }))
 
 export default function NavBar() {
@@ -40,8 +42,9 @@ export default function NavBar() {
                     <AppBar>
                         <Toolbar>
                             <Link to="/" className={classes.title}>
-                                <Typography variant="h3">
-                                    <OfflineBolt fontSize="large"/>Tienda Ciencia
+                                <Typography className={classes.marca} variant="h1">
+                                    <OfflineBolt fontSize="large"/>
+                                    TiendaCiencia
                                 </Typography>
                             </Link>
                             <div id="botones">

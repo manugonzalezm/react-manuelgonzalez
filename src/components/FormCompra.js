@@ -114,7 +114,7 @@ function FormCompra() {
                 <div>
                     <Container>
                         <Typography id="mensajeOrden" variant="body1">
-                            Su compra ha sido realizada. Su orden de compra es la #{orderId}
+                            Su compra ha sido realizada. Su orden de compra es: #{orderId}
                         </Typography>
                         <Divider />
                         <Typography id="margenV" variant="h5">

@@ -1,18 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Typography} from '@material-ui/core'
-import { FiberManualRecord } from '@material-ui/icons'
+import { Typography, Card, CardActionArea, CardContent, CardMedia } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    root: {
+        width: 250,
+        height: 350,
+    },
+});
 
 function Item(producto) {
+    
+    const classes = useStyles();
+    
     return(
-        <div className="cardProducto">
-                    <Link to={`/productos/${producto.id}`}>
-                    <Typography id="titleProducto" variant="h6"><FiberManualRecord /> { producto.nombre } </Typography>
-                        <img 
-                            src={producto.foto}
+        <div>
+            <Link to={`/productos/${producto.id}`}>
+                <Card className={classes.root}>
+                    <CardActionArea>
+                        <CardMedia
+                            component="img"
+                            alt={ producto.nombre }
+                            height="255"
+                            image={producto.foto}
+                            title={ producto.nombre }
                         />
-                        <Typography className="precio" variant="h6"> ${ producto.precio } </Typography>
-                    </Link>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                { producto.nombre }
+                            </Typography>
+                            <Typography variant="h6">
+                                ${ producto.precio }
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+            </Link>
         </div>
     )
 }

@@ -1,19 +1,39 @@
 import React from 'react';
 import { Typography } from '@material-ui/core'
-import { FiberManualRecord } from '@material-ui/icons'
+import { makeStyles } from '@material-ui/core/styles';
 
-
+const useStyles = makeStyles({
+    fotoProducto: {
+        width: "100%",
+        height: "420px",
+    },
+    titulo: {
+        fontSize: "2rem",
+        margin: "5px 0",
+    },
+    descripcion: {
+        fontSize: "1.1rem",
+        margin: "10px 0",
+    },
+    precio: {
+        margin: "5px"
+    },
+});
 
 function ItemDetail({ nombre, precio, foto, descripcion }) {
 
+    const classes = useStyles();
+
     return(
-        <div className="cardProducto Detalle">
-            <Typography id="titleProducto" variant="h6"><FiberManualRecord /> { nombre } </Typography>
-            <img 
-                src={foto}
+        <div>
+            <img
+                className={classes.fotoProducto}
+                src={ foto }
+                alt={ nombre }
             />
-            <Typography className="descripcion" variant="body1"> { descripcion } </Typography>
-            <Typography className="precio" variant="subtitle1"> ${ precio } </Typography>
+            <Typography className={classes.titulo} variant="h5"> { nombre } </Typography>
+            <Typography className={classes.descripcion} variant="body1"> { descripcion } </Typography>
+            <Typography className={classes.precio} variant="h6"> ${ precio } </Typography>
         </div>
     )
 }
