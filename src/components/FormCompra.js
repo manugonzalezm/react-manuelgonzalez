@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCartContext } from '../context/CartContext'
 import { Typography, Button, TextField, Grid, Container, Divider } from '@material-ui/core'
+import { Payment, Person, Phone, AlternateEmail, Home, ArrowBack } from '@material-ui/icons';
 import { Link } from 'react-router-dom'
 import { getFirestore } from '../firebase';
 
@@ -57,7 +58,7 @@ function FormCompra() {
     return(
         <>
             {!mostrarOrden &&
-                <Container>
+                <Container id="contenedorForm">
                     <Typography 
                         id="formTitle" 
                         variant="h5">
@@ -65,7 +66,13 @@ function FormCompra() {
                     </Typography>
                     <form onSubmit={enviarDatos}>
                     <Grid container spacing={3}>
-                        <Grid item xs={8}>
+                        <Grid item xs={1}>
+                            <Person 
+                                fontSize="large"
+                                style={{margin: "10px 0 0 0"}}
+                            />
+                        </Grid>
+                        <Grid item xs={11}>
                             <TextField 
                                 name="nombre"
                                 fullWidth 
@@ -73,10 +80,17 @@ function FormCompra() {
                                 variant="outlined" 
                                 label="Nombre y apellido" 
                                 required
+                                color="secondary"
                                 onChange={handleInputChange}
                             />
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={1}>
+                            <Phone 
+                                fontSize="large"
+                                style={{margin: "10px 0 0 0"}}
+                            />
+                        </Grid>
+                        <Grid item xs={11}>
                             <TextField 
                                 name="telefono"
                                 fullWidth type="tel" 
@@ -84,9 +98,16 @@ function FormCompra() {
                                 label="Teléfono" 
                                 required
                                 onChange={handleInputChange}
+                                color="secondary"
                             />
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={1}>
+                            <AlternateEmail 
+                                fontSize="large"
+                                style={{margin: "10px 0 0 0"}}
+                            />
+                        </Grid>
+                        <Grid item xs={11}>
                             <TextField 
                                 name="email"
                                 fullWidth 
@@ -94,17 +115,34 @@ function FormCompra() {
                                 variant="outlined" 
                                 label="E-mail" 
                                 required
+                                color="secondary"
                                 onChange={handleInputChange}
                             />
                         </Grid>
-                        <Grid item xs={12}>
-                            <Button 
-                                type="submit"
-                                id="comprar" 
-                                variant="outlined" 
-                                size="large">
+                        <Grid item xs={6}>
+                            <Link to="/cart">
+                                <Button 
+                                    color="secondary"
+                                    variant="contained" 
+                                    size="large"
+                                    style={{margin: "10px 0 0 5%"}}
+                                    startIcon={<ArrowBack />}
+                                >
+                                        Volver al carrito
+                                </Button>
+                            </Link>
+                        </Grid>
+                        <Grid item xs={6}>
+                                <Button 
+                                    type="submit"
+                                    id="comprar" 
+                                    variant="contained" 
+                                    size="large"
+                                    style={{margin: "10px 0 0 50%"}}
+                                    startIcon={<Payment />}
+                                >
                                     Comprar
-                            </Button>
+                                </Button>
                         </Grid>
                     </Grid>
                     </form>
@@ -157,7 +195,7 @@ function FormCompra() {
                             </Grid>
                             <Grid item xs={12}>
                                 <Link to="/">
-                                    <Button>
+                                    <Button startIcon={<Home />}>
                                         Volver al Home
                                     </Button>
                                 </Link>

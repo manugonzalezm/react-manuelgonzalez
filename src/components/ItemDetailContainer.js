@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     contenedor: {
-        padding: "30px",
+        padding: "40px 80px",
     },
     cardCenter: {
         display: "flex",
