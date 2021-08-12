@@ -1,13 +1,24 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const contexto = createContext([]);
 
 export const useCartContext = () => useContext(contexto);
 
+const cartItemsFromLS = JSON.parse(localStorage.getItem('cartItems'))
+const cartPriceFromLS = JSON.parse(localStorage.getItem('cartPrecio'))
+const cartContadorFromLS = JSON.parse(localStorage.getItem('cartCant'))
+
+
 const CartProvider = ( {children} ) => {
-    const [cartContador, setCartContador] = useState(0);
-    const [cartItems, setCartItems] = useState([]);
-    const [cartPrecio, setCartPrecio] = useState(0);
+    const [cartContador, setCartContador] = useState(cartContadorFromLS !== null ? cartContadorFromLS : 0);
+    const [cartItems, setCartItems] = useState(cartItemsFromLS !== null ? cartItemsFromLS : []);
+    const [cartPrecio, setCartPrecio] = useState(cartPriceFromLS <0 ? cartPriceFromLS : 0);
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems))
+        localStorage.setItem('cartPrice', JSON.stringify(cartPrecio))
+        localStorage.setItem('cartCant', JSON.stringify(cartContador))
+    }, [cartContador, cartItems, cartPrecio])
 
     const addItem = (item, cant) => {
         if(cartItems.some(prod => prod.nombre === item.nombre)){

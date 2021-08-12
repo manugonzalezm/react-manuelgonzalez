@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import ItemCount from './ItemCount';
 import { Link, useParams } from 'react-router-dom';
-import { Button, CircularProgress, Snackbar, Container, Grid, Box } from '@material-ui/core'
+import { Button, CircularProgress, Snackbar, Container, Grid } from '@material-ui/core'
 import MuiAlert from '@material-ui/lab/Alert';
 import { ShoppingBasket, ShopTwo } from '@material-ui/icons'
 import { useCartContext } from '../context/CartContext'
@@ -94,7 +94,7 @@ export default function ItemDetailContainer() {
                     >
                         <Grid
                             item
-                            xs={6}
+                            xs={12}
                             className={classes.cardCenter}
                         >
                             <ItemDetail
@@ -103,6 +103,13 @@ export default function ItemDetailContainer() {
                                 descripcion={item.descripcion}
                                 foto={item.foto}
                             />
+                        </Grid>
+                        <Grid
+                            item
+                            xs={6}
+                            className={classes.cardCenter}
+                        >
+                            
                         </Grid>
                         <Grid
                             item

@@ -6,6 +6,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import FormCompra from './components/FormCompra';
+import Contacto from './components/Contacto';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import CartProvider, { contexto } from './context/CartContext';
 
@@ -25,6 +26,7 @@ console.log(contexto)
               <Route exact path='/productos/:id' component={ ItemDetailContainer } />
               <Route exact path='/cart' component={ Cart } />
               <Route exact path='/comprar' component={ FormCompra } />
+              <Route exact path='/contacto' component={ Contacto } />
             </Switch>
           </BrowserRouter>
       </CartProvider>

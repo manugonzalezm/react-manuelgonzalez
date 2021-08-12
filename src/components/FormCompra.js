@@ -155,6 +155,13 @@ function FormCompra() {
                                     Monto Total: ${montoOrden}
                                 </Typography>
                             </Grid>
+                            <Grid item xs={12}>
+                                <Link to="/">
+                                    <Button>
+                                        Volver al Home
+                                    </Button>
+                                </Link>
+                            </Grid>
                         </Grid>
                     </Container>
                 </div>

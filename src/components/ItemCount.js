@@ -6,8 +6,8 @@ export default function ItemCount({ cant, sacarProducto, onAdd, finishCompra }) 
 
     return(
         <div>
-            <form>
-                <div>
+            <form id="containerCount" onSubmit={finishCompra}>
+                <div id="controlsCount">
                     <Button onClick={sacarProducto}><Remove /></Button>
                     <TextField 
                         id="cant"
@@ -20,7 +20,7 @@ export default function ItemCount({ cant, sacarProducto, onAdd, finishCompra }) 
                     <Button onClick={onAdd}><Add /></Button>
                 </div>
                 <div id="cart">
-                    <Button type="submit" onClick={finishCompra}><AddShoppingCart /> Agregar al Carrito</Button>
+                    <Button type="submit"><AddShoppingCart /> Agregar al Carrito</Button>
                 </div>
             </form>
         </div>

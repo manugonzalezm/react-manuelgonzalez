@@ -1,14 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import ItemList from './ItemList';
-import { CircularProgress, Grid, Container, Box } from '@material-ui/core'
+import { CircularProgress, Grid, Container } from '@material-ui/core'
 import { getFirestore } from '../firebase';
 import { makeStyles } from '@material-ui/core/styles';
 
-
 const useStyles = makeStyles({
     gridContainer: {
-        padding: "20px",
+        padding: "30px",
     },
 });
 

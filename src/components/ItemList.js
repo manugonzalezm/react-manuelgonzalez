@@ -8,7 +8,7 @@ const useStyles = makeStyles({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        margin: "0 0 35px 0",
+        margin: "0 0 40px 0",
     },
 });
 
@@ -22,7 +22,9 @@ function ItemList({products}) {
                 return(
                     <Grid 
                         item 
-                        xs={4}
+                        xs={12}
+                        sm={6}
+                        lg={4}
                         className={classes.cardCenter}
                         justify="center"
                         alignItems="center"

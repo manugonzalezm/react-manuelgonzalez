@@ -58,7 +58,9 @@ function CategoriasList() {
                         return(
                         <Grid 
                             item 
-                            xs={4}
+                            xs={12}
+                            sm={6}
+                            lg={4}
                             className={classes.cardCenter}
                             justify="center"
                             alignItems="center"

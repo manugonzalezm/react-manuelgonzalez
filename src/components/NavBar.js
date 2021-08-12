@@ -7,7 +7,8 @@ import {Button,
         Typography,
         makeStyles,
         Menu,
-        MenuItem } from '@material-ui/core';
+        MenuItem,
+        Hidden } from '@material-ui/core';
 import {OfflineBolt,
         Store,
         Category,
@@ -17,7 +18,8 @@ import { Link } from 'react-router-dom'
 const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
     title: {
-        marginRight:300
+        marginLeft: 10,
+        marginRight: 320,
     },
     marca:{
         fontSize: "2.5rem",
@@ -47,35 +49,39 @@ export default function NavBar() {
                                     TiendaCiencia
                                 </Typography>
                             </Link>
-                            <div id="botones">
-                                <Link to="/productos">
+                            <Hidden smDown>
+                                <div id="botones">
+                                    <Link to="/productos">
+                                        <Button 
+                                            variant="contained"
+                                            color="secondary"
+                                            startIcon={<Store/>}
+                                        >
+                                            Productos
+                                        </Button>
+                                    </Link>
                                     <Button 
                                         variant="contained"
                                         color="secondary"
-                                        startIcon={<Store/>}
+                                        startIcon={<Category/>}
+                                        onClick={handleOpenMenu}
+                                        aria-controls='categorias'
+                                        disableRipple
                                     >
-                                        Productos
+                                        Categorías
                                     </Button>
-                                </Link>
-                                <Button 
-                                    variant="contained"
-                                    color="secondary"
-                                    startIcon={<Category/>}
-                                    onClick={handleOpenMenu}
-                                    aria-controls='categorias'
-                                    disableRipple
-                                >
-                                    Categorías
-                                </Button>
-                                <Button 
-                                    variant="contained"
-                                    color="secondary"
-                                    startIcon={<Contacts/>}
-                                >
-                                    Contacto
-                                </Button>
-                                            <CartWidget />
-                            </div>
+                                    <Link to="/contacto">
+                                        <Button 
+                                            variant="contained"
+                                            color="secondary"
+                                            startIcon={<Contacts/>}
+                                        >
+                                            Contacto
+                                        </Button>
+                                    </Link>
+                                    <CartWidget />
+                                </div>
+                            </Hidden>
                         </Toolbar>
                     </AppBar>
                     <div className={classes.offset}></div>

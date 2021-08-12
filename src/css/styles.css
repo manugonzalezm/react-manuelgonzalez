@@ -50,9 +50,33 @@ a{
   text-align: center;
   width: 150px;
 }
+#containerCount{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  flex-direction: row;
+  margin: -50px 0 0 0;
+}
+
+#controlsCount{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  align-items: center;
+  flex-direction: row;
+}
 
 #cart{
-  margin: 30px 0 0 40px;
+  margin: 0 0 0 30px;
+}
+
+#formContacto{
+  margin: 30px 0;
+}
+
+#formContacto *{
+  color: black;
 }
 
 #titleProducto{

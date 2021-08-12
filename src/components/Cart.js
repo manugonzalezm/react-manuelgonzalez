@@ -11,7 +11,7 @@ function Cart() {
             <Typography variant="h3">Carrito</Typography>
             {cartItems.length > 0 ? cartItems.map((item, index) => (
                 <div className="containerCarts">
-                    <img className="miniaturaProd" src={item.foto} />
+                    <img className="miniaturaProd" src={item.foto} alt={item.nombre} />
                     <Typography variant="body1" key={index}>
                         {item.nombre} x {item.cant}
                     </Typography>
