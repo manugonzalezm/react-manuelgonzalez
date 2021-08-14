@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# E-commerce "TiendaCiencia" - Proyecto final CoderHouse - ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto se trata de una tienda online de articulos relacionados con la ciencia y el gaming.
 
 ## Available Scripts
 
