@@ -9,6 +9,7 @@ import FormCompra from './components/FormCompra';
 import Contacto from './components/Contacto';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import CartProvider, { contexto } from './context/CartContext';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -28,6 +29,7 @@ console.log(contexto)
               <Route exact path='/comprar' component={ FormCompra } />
               <Route exact path='/contacto' component={ Contacto } />
             </Switch>
+            <Footer />
           </BrowserRouter>
       </CartProvider>
     </div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import ItemCount from './ItemCount';
 import { Link, useParams } from 'react-router-dom';
-import { Button, CircularProgress, Snackbar, Container, Grid } from '@material-ui/core'
+import { Button, CircularProgress, Snackbar, Container, Grid, Typography } from '@material-ui/core'
 import MuiAlert from '@material-ui/lab/Alert';
 import { ShoppingBasket, ShopTwo } from '@material-ui/icons'
 import { useCartContext } from '../context/CartContext'
@@ -31,6 +31,7 @@ export default function ItemDetailContainer() {
         const [showCart, setShowCart] = useState(true)
         const [open, setOpen] = useState(false)
         const [loading, setLoading] = useState(true)
+        const [itemExists, setItemExists] = useState(true);
 
         const { addItem } = useCartContext();
 
@@ -55,6 +56,7 @@ export default function ItemDetailContainer() {
             item.get().then((doc) => {
                 if (!doc.exists) {
                     console.log("El item no existe en la base de datos");
+                    setItemExists(false);
                     return;
                 }
                 console.log("Item encontrado");
@@ -85,7 +87,10 @@ export default function ItemDetailContainer() {
                     fixed
                     className={classes.contenedor}
                 >
-                { loading
+                {
+                    itemExists ?
+                    <>
+                    { loading
                         ? <CircularProgress color="secondary" className="Preloader"/>
                         :  
                     <>
@@ -162,7 +167,16 @@ export default function ItemDetailContainer() {
                         </MuiAlert>
                     </Snackbar>
                     </>
+                    }
+                    </>
+                    : 
+                    <>
+                        <Typography variant="h5">
+                            Error: El producto no existe en la base de datos
+                        </Typography>
+                    </>
                 }
+                
                 </Container>
             </>
         );

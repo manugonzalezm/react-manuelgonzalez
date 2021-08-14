@@ -4,8 +4,17 @@ import { Typography, Button, TextField, Grid, Container, Divider } from '@materi
 import { Payment, Person, Phone, AlternateEmail, Home, ArrowBack } from '@material-ui/icons';
 import { Link } from 'react-router-dom'
 import { getFirestore } from '../firebase';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    respuesta: {
+        marginBottom: "120px"
+    },
+});
 
 function FormCompra() {
+    const classes = useStyles();
+
     const { cartItems, clearCart, cartPrecio } = useCartContext();
 
     const [mostrarOrden, setMostrarOrden] = useState(false);
@@ -150,7 +159,7 @@ function FormCompra() {
             }
             {mostrarOrden &&
                 <div>
-                    <Container>
+                    <Container className={classes.respuesta}>
                         <Typography id="mensajeOrden" variant="body1">
                             Su compra ha sido realizada. Su orden de compra es: #{orderId}
                         </Typography>
@@ -195,7 +204,7 @@ function FormCompra() {
                             </Grid>
                             <Grid item xs={12}>
                                 <Link to="/">
-                                    <Button startIcon={<Home />}>
+                                    <Button color="secondary" variant="contained" startIcon={<Home />}>
                                         Volver al Home
                                     </Button>
                                 </Link>

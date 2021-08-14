@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     },
     contenedor: {
         margin: "20px",
+        marginBottom: "100px",
     },
     carritoVacio: {
         margin: "20px auto",
@@ -52,7 +53,7 @@ function Cart() {
                                 <TableCell align="left"><Typography variant="h6">Nombre</Typography></TableCell>
                                 <TableCell align="left"><Typography variant="h6">Cantidad</Typography></TableCell>
                                 <TableCell align="left"><Typography variant="h6">Precio unit.</Typography></TableCell>
-                                <TableCell align="left"><Typography variant="h6">Subtotal</Typography></TableCell>
+                                <TableCell align="left"><Typography variant="h5">Subtotal</Typography></TableCell>
                                 <TableCell align="left"><Typography variant="h6">Eliminar</Typography></TableCell>
                             </TableRow>
                             </TableHead>
@@ -65,7 +66,7 @@ function Cart() {
                                 <TableCell align="left"><Typography variant="h6">{item.nombre}</Typography></TableCell>
                                 <TableCell align="left"><Typography variant="h6">x {item.cant}</Typography></TableCell>
                                 <TableCell align="left"><Typography variant="h6">${item.precio}</Typography></TableCell>
-                                <TableCell align="left"><Typography variant="h6">${item.precio*item.cant}</Typography></TableCell>
+                                <TableCell align="left"><Typography variant="h5">${item.precio*item.cant}</Typography></TableCell>
                                 <TableCell align="left">
                                     <Button color="secondary" onClick={()=>removeItem(item,item.cant)} variant="contained">
                                         <RemoveShoppingCart />

@@ -11,6 +11,10 @@ const useStyles = makeStyles({
         border: "1px solid black",
         borderRadius: "1rem",
         margin: "35px",
+        marginBottom: "80px",
+    },
+    respuesta: {
+        marginBottom: "200px"
     },
 });
 
@@ -188,7 +192,7 @@ function Contacto() {
         }
         {mostrarConsulta &&
                 <div>
-                    <Container>
+                    <Container className={classes.respuesta}>
                         <Typography id="margenV" variant="h5">
                             {consulta.nombre} ¡Muchas gracias por comunicarte con nosotros! Te contactaremos a la brevedad.
                         </Typography>
