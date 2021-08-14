@@ -1,4 +1,5 @@
-# E-commerce "TiendaCiencia" - Proyecto final CoderHouse - ReactJS
+# E-commerce "TiendaCiencia"
+## Proyecto final CoderHouse - ReactJS
 
 El proyecto se trata de una tienda online de articulos relacionados con la ciencia y el gaming.
 
@@ -68,3 +69,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+- ## Tecnologías utilizadas:
+  - React JS
+  - Material UI
+  - Material Icons
+  - Firebase
