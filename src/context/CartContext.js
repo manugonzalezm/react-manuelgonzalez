@@ -12,11 +12,11 @@ const cartContadorFromLS = JSON.parse(localStorage.getItem('cartCant'))
 const CartProvider = ( {children} ) => {
     const [cartContador, setCartContador] = useState(cartContadorFromLS !== null ? cartContadorFromLS : 0);
     const [cartItems, setCartItems] = useState(cartItemsFromLS !== null ? cartItemsFromLS : []);
-    const [cartPrecio, setCartPrecio] = useState(cartPriceFromLS <0 ? cartPriceFromLS : 0);
+    const [cartPrecio, setCartPrecio] = useState(cartPriceFromLS);
 
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems))
-        localStorage.setItem('cartPrice', JSON.stringify(cartPrecio))
+        localStorage.setItem('cartPrecio', JSON.stringify(cartPrecio))
         localStorage.setItem('cartCant', JSON.stringify(cartContador))
     }, [cartContador, cartItems, cartPrecio])
 
